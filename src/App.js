@@ -1,18 +1,22 @@
-import Header from "./component/Header";
-import Button from "./component/Button";
-import { Image } from "./component/Image";
-import Navbar from "./component/Navbar";
+// import Header from "./component/Header";
+// import Button from "./component/Button";
+// import { Image } from "./component/Image";
+// import Navbar from "./component/Navbar";
+// import Practice from "./component/Practice"
+import TaskManager from "./component/TaskManager";
 
 function App(){
   return (
     <div>
-      <Navbar />
+      {/* <Navbar />
       <Header />
       <Button label="Add to Cart" />
       <Button label="Read more..." />
       <Button label="Register" />
       <Button label="Login" />
-      <Image />
+      <Image /> */}
+      {/* <Practice /> */}
+      <TaskManager />
     </div>
   );
 }
