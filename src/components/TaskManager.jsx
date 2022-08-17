@@ -1,25 +1,46 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import { v4 as uuid } from "uuid"
 import TaskItem from "./TaskItem";
 // import background from "../assets/background.jpg";
 
-
+const getTasksFromLocalStorage =() => {
+    // get the task from the localStorage
+    const savedTasks = localStorage.getItem("tasks")
+    if(!savedTasks) return [];
+    return JSON.parse(savedTasks);
+   };
+   
 
 function TaskManager() {
-     const[tasks, setTasks] = useState([]);
+     const[tasks, setTasks] = useState(getTasksFromLocalStorage);
      const[input, setInput] = useState("");
      
      const handleSubmit = e => {
         e.preventDefault();
         if (input === "") return;
 
-        setTasks([input, ...tasks]); 
+
+        const newTasks ={
+            id: uuid(),
+            text: input,
+            completed: false,
+        };
+
+        setTasks([newTasks, ...tasks]); 
         setInput("");
      };
 
-     const handleDelete = (idx) => {
-        const newTasks = tasks.filter((task) => task !== idx);
+
+
+     const handleDelete = (id) => {
+        const newTasks = tasks.filter((task) => task.id !== id);
         setTasks(newTasks);
-     }
+     };
+
+     useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
+    
 
     return(
         // <div className="relative h-screen w-full bg-slate-800/950">
@@ -38,7 +59,7 @@ function TaskManager() {
                 </form>
                 <div className="space-y-2 overflow-y-auto h-52">
                     {
-                            tasks.map((task) => <TaskItem task={task} handleDelete={handleDelete} />)
+                            tasks.map((task) => <TaskItem key={task.id} task={task} handleDelete={handleDelete} />)
                     }
                     {
                     //  <TaskItem task={"task"} />
