@@ -1,6 +1,109 @@
+// import React from "react";
+
+// import { useForm } from "react-hook-form";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import * as yup from "yup";
+
+// const schema = yup.object({
+//     firstName: yup.string().length(20).required(),
+//     lastName: yup.string().length(20).required(),
+//     middleName: yup.string().length(20),
+//     dateOfBirth: yup.date().required(),
+//     gender: yup.string().oneOf(["male", "female"]).required(),
+//     phoneNumber: yup.string().length(10).required(),
+//     email: yup.string().email().required(),
+// })
+// function Form() {
+//     const {register, handleSubmit, watch } = useForm({
+//         mode:"onSubmit",
+//         resolver: yupResolver(schema)
+//     });f
+
+//     const onSubmit =(data) =>{
+//         console.log(data);
+//     };
+
+   
+//     return(
+//         <div className="h-screen flex justify-center items-center bg-gradient-to-br from-fuchsia-400 to-orange-500">
+//             <div className="max-w-2xl w-full bg-white rounded-xl p-10">
+//                 <form onSubmit={handleSubmit(onSubmit)}>
+//                     <div className="flex space-y-3 flex-col md:flex-row md:space-y-0 md:gap-2">
+//                        <div>
+//                         <label htmlFor="firstName" className="form-label">First Name
+//                         </label>
+//                          <input type="text" {...register ("firstName")}/>
+//                        </div>
+//                        <div>
+//                        <label htmlFor="lastName" className="form-label">Last Name
+//                        </label>
+//                        <input type="text"  {...register ("lastName") } />
+//                        </div>
+//                        <div>
+//                        <label htmlFor="middleName" className="form-label">Middle Name
+//                        </label>
+//                        <input type="text"  {...register ("middleName")}/>
+//                        </div>
+//                        </div>
+
+//                        <label htmlFor="gender" className="form-label">
+//                             Gender
+//                         </label>  
+//                        <div>
+//                         <label htmlFor="male">
+//                          <input type="radio" {...register ("gender")} value="male" 
+//                         />{""} 
+//                          Male
+//                          </label>
+
+//                     <label htmlFor="female">
+//                          <input type="radio" {...register ("gender")} value="female"
+//                          />{""}
+//                          Female
+//                          </label>
+//                     </div>
+
+//                     <div>
+//                     <label htmlFor="dateOfBirth">Date of Birth
+//                          </label>
+//                          <input type="date" {...register ("dateOfBirth")}
+//                          /> 
+//                     </div>
+
+//                     <div>
+//                     <label htmlFor="phone">Phone Number
+//                          </label>
+//                          <input type="tel" {...register ("phone")}
+                         
+//                          /> 
+//                     </div> 
+
+//                     <div>
+//                     <label htmlFor="email">Email
+//                          </label>
+//                          <input type="email" {...register ("email")}
+                         
+//                         /> 
+//                     </div>   
+
+//                     <div>
+//                     <button type="submit">Sign Up</button>
+//                     </div>   
+//                 </form>
+//             </div>
+//         </div>
+//     );
+// }
+
+// export default Form;
+
+
 import React, { useState }from "react";
 
+import { useForm } from "react-hook-form";
+
 function Form() {
+    const {register, handleSubmit} = useForm();
     const [data, setData] = useState({
         firstName:"",
         lastName:"",
