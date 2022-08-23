@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { v4 as uuid } from "uuid"
+import { v4 as uuid } from "uuid";
 import TaskItem from "./TaskItem";
 // import background from "../assets/background.jpg";
 
@@ -68,7 +68,7 @@ function TaskManager() {
                 </div>
             </div>
         
-    );
+    )
 }
 
 export default TaskManager; 

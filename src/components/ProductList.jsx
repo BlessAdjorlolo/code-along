@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from "react";
-import xios from "axios";
+import axios from "axios";
 import Product from "./Product";
 import Spinner from "./spinner";
 import useAxios from "./hooks/useAxios";
