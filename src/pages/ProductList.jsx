@@ -1,8 +1,8 @@
 // import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Product from "./Product";
-import Spinner from "./spinner";
-import useAxios from "./hooks/useAxios";
+import Product from "../components/Product";
+import Spinner from "../components/spinner";
+import useAxios from "../components/hooks/useAxios";
 
 function ProductList() {
     const{data, isLoading, error} = useAxios("https://api.escuelajs.co/api/v1/products");
